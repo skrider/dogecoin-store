@@ -1,28 +1,22 @@
-import React from 'react';
-import { Text } from '@chakra-ui/react'
+import React, {useState} from 'react';
+import { Text, Box, Flex } from '@chakra-ui/react'
 
-import { StoreItemsInfo } from './constants.js'
+import { StoreItemsInfo } from './constants'
+import { CartItem } from "./types";
+import ItemCard from "./components/ItemCard";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
 function App() {
-  
-
+  const [CartItems, setCartItems] = useState(StoreItemsInfo.map(item => {
+    return {...item, quantity: 0} as CartItem
+  }))
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <Text fontSize={'sm'}>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </Text>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar setSearch={(target: string) => console.log(target)} toCart={() => console.log("cart")} />
+      <Home cartItems={CartItems} />
+    </>
   );
 }
 
