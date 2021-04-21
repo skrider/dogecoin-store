@@ -21,7 +21,7 @@ const ItemCard: React.FC<ItemCardProps> = (
     boxShadow={'md'}
     bg={'white'}
     gridTemplateColumns={'1fr'}
-    gridTemplateRows={'2fr 1fr'}
+    gridTemplateRows={'3fr 2fr'}
     {...props}
   >
 	  <Flex

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {CartItem} from "../../types";
 import {Flex, Box, Text, Divider, Button, Link as ChakraLink} from "@chakra-ui/react"
 import {Link} from "react-router-dom"
@@ -22,6 +22,12 @@ const Cart: React.FC<CartProps> = (
 	// Keep track of the last item removed
 	const [removed, setRemoved] = useState<string>();
 
+	// Automatically maintain a filtered list of items to be shown in the cart
+	const [filteredItems, setFilteredItems] = useState<CartItem[]>([]);
+	useEffect(() => setFilteredItems(CartItems.filter(item => { // reject all items with quantity = 0, but keep the last one removed
+		return item.quantity > 0 || item.name === removed;
+	})), [removed])
+
 	return (
  	 <Flex>
 		 <Flex //Flex containing cart items
@@ -40,20 +46,16 @@ const Cart: React.FC<CartProps> = (
 				 border={'3'}
 				 mb={'0.5rem'}
 			 />
-			 {CartItems
-				 .filter(item => { // reject all items with quantity = 0, but keep the last one removed
-					 return item.quantity > 0 || item.name === removed;
-				 })
-				 .filter(item => { // if search is active, reject non-matches
+			 {filteredItems.filter(item => { // if search is active, reject non-matches
 				 	 if (searchExp === '') {
 				 		 return true;
 				 	 } else {
 				 		 return item.name.toLowerCase().includes(searchExp);
 				 	 }
-				 })
+			 	 })
 				 .map((item, index) => { // choose whether to render a RecoverCard or a CartCard depending on whether item was removed
 				 return (item.name === removed ?
-						 <RecoverCard
+				 		 <RecoverCard
 							 key={`${item.name}${index}`}
 							 item={item}
 							 mb={'1rem'}
@@ -74,11 +76,23 @@ const Cart: React.FC<CartProps> = (
 										 setRemoved(item.name)
 									 }
 									 changeQuantity(item.name, value)
-								 }
+				 				 }
 							 }
 						 />
 					 )
 			 })}
+			 {filteredItems.length === 0 ?
+				 <Text
+				   color={'blue'}
+				   alignSelf={'center'}
+				   fontSize={'xl'}
+				   m={'3rem'}
+				 >
+					 Your cart is empty. Time to shop!
+				 </Text>
+			 :
+			    <></>
+			 }
 		 </Flex>
 	   <Flex //flex box containing names and prices
 	     flexDir={'column'}
@@ -96,10 +110,7 @@ const Cart: React.FC<CartProps> = (
 			   color={'blue'}
 			   border={'3'}
 		   />
-		   {CartItems //display names and values of all items currently in the cart (quantity > 0)
-			   .filter(item => {
-				   return item.quantity > 0;
-			   })
+		   {filteredItems
 			   .map((item, index) =>
 				   <Flex
 					   key={`${item}${index}`}

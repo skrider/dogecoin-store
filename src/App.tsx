@@ -17,7 +17,7 @@ import Footer from './components/Footer';
 function App() {
 	//Append a new field, quantity, to StoreItems
   const [CartItems, setCartItems] = useState(StoreItemsInfo.map(item => {
-    return {...item, quantity: 1} as CartItem
+    return {...item, quantity: 0} as CartItem
   }))
 
 	//keep track of search bar at root level

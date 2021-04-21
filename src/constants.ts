@@ -97,6 +97,76 @@ export const StoreItemsInfo : StoreItemInfo[] = [
 		tags: [
 			"medium"
 		]
+	},
+	{
+		name: 'Orange Cup',
+		price: 32,
+		img: 'https://dogecoin-store.s3-us-west-1.amazonaws.com/cup.jpg',
+		desc: 'This cup is orange.',
+		tags: [
+			"medium",
+			"microwave safe"
+		]
+	},
+	{
+		name: 'Ubiquitous Cup',
+		price: 23,
+		img: 'https://dogecoin-store.s3-us-west-1.amazonaws.com/cup1.jfif',
+		desc: 'This cup is everywhere!',
+		tags: [
+			"small",
+			"microwave safe"
+		]
+	},
+	{
+		name: 'Ubiquitous Cup',
+		price: 23,
+		img: 'https://dogecoin-store.s3-us-west-1.amazonaws.com/cup1.jfif',
+		desc: 'This cup is everywhere!',
+		tags: [
+			"small",
+			"microwave safe"
+		]
+	},
+	{
+		name: 'Ubiquitous Cup',
+		price: 23,
+		img: 'https://dogecoin-store.s3-us-west-1.amazonaws.com/cup1.jfif',
+		desc: 'This cup is everywhere!',
+		tags: [
+			"small",
+			"microwave safe"
+		]
+	},
+	{
+		name: 'Ubiquitous Cup',
+		price: 23,
+		img: 'https://dogecoin-store.s3-us-west-1.amazonaws.com/cup1.jfif',
+		desc: 'This cup is everywhere!',
+		tags: [
+			"small",
+			"microwave safe"
+		]
+	},
+	{
+		name: 'Ubiquitous Cup',
+		price: 23,
+		img: 'https://dogecoin-store.s3-us-west-1.amazonaws.com/cup1.jfif',
+		desc: 'This cup is everywhere!',
+		tags: [
+			"small",
+			"microwave safe"
+		]
+	},
+	{
+		name: 'Ubiquitous Cup',
+		price: 23,
+		img: 'https://dogecoin-store.s3-us-west-1.amazonaws.com/cup1.jfif',
+		desc: 'This cup is everywhere!',
+		tags: [
+			"small",
+			"microwave safe"
+		]
 	}
 ]
 
