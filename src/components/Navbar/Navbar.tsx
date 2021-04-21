@@ -1,14 +1,14 @@
 import React from 'react';
 import {Flex, Text, Input, Icon} from '@chakra-ui/react'
 import {BiCart} from 'react-icons/bi'
+import {Link} from 'react-router-dom'
 import {BsFillPersonFill} from 'react-icons/bs'
 
 export type NavbarProps = {
 	setSearch: (value : string) => void,
-	toCart: () => void,
 };
 
-const Navbar: React.FC<NavbarProps> = ({setSearch, toCart}: NavbarProps) => {
+const Navbar: React.FC<NavbarProps> = ({setSearch}: NavbarProps) => {
  return (
    <Flex
 	   w={'100%'}
@@ -18,11 +18,13 @@ const Navbar: React.FC<NavbarProps> = ({setSearch, toCart}: NavbarProps) => {
 	   justifyContent={'space-between'}
 	   bg={'blue'}
    >
-	   <Text color={'yellow'} fontSize={'1.5rem'}>
-		   <b>DogeCoin</b> Store
-	   </Text>
+	   <Link to={'/'}>
+		   <Text color={'yellow'} fontSize={'1.5rem'}>
+			   <b>DogeCoin</b> Store
+		   </Text>
+	   </Link>
 	   <Flex h={'100%'}>
-		   <Input
+		   <Input //search bar for both Store and Cart views
 			   as="input"
 			   height="auto"
 			   borderRadius="2xl"
@@ -35,13 +37,14 @@ const Navbar: React.FC<NavbarProps> = ({setSearch, toCart}: NavbarProps) => {
 			   }}
 			   mr={'0.5rem'}
 		   />
-		   <Icon
-			   as={BiCart}
-			   color={'yellow'}
-			   boxSize={'40px'}
-			   onClick={() => toCart()}
-			   mr={'0.5rem'}
-		   />
+		   <Link to={'/cart'}>
+			   <Icon //react router link to cart
+				   as={BiCart}
+				   color={'yellow'}
+				   boxSize={'40px'}
+				   mr={'0.5rem'}
+			   />
+		   </Link>
 		   <Icon
 			   as={BsFillPersonFill}
 			   boxSize={'40px'}

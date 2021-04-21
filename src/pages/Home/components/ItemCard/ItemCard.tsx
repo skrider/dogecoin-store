@@ -1,7 +1,7 @@
 import React from 'react';
-import { CartItem, ItemTag } from "../../types";
-import PriceTag from "../PriceTag";
-import {Text, Box, Flex, Image, Divider, Button, BoxProps} from "@chakra-ui/react"
+import { CartItem } from "src/types";
+import PriceTag from "src/components/PriceTag";
+import {Text, Flex, Image, Divider, Button, BoxProps, Grid} from "@chakra-ui/react"
 
 export type ItemCardProps = {
 	item: CartItem
@@ -10,30 +10,36 @@ export type ItemCardProps = {
 } & BoxProps;
 
 const ItemCard: React.FC<ItemCardProps> = (
-	{item: {name, price, img, desc, tags},
+	{item: {name, price, img, tags},
 		onClick,
 		handleFilter,
 		...props}) => {
  return (
-  <Flex
+  <Grid
     p={'2rem'}
     borderRadius={'md'}
     boxShadow={'md'}
-    color={'white'}
-    flexDir={'column'}
-    justifyContent={'left'}
+    bg={'white'}
+    gridTemplateColumns={'1fr'}
+    gridTemplateRows={'2fr 1fr'}
     {...props}
   >
-	  <Image
-		  src={img}
-		  alt={name}
-		  alignSelf={'center'}
-		  onClick={() => onClick(name)}
-		  cursor={'pointer'}
-	  />
 	  <Flex
-	    flexDir={'column'}
-	    align={'left'}
+		  alignSelf={'center'}
+		  alignItems={'center'}
+	  >
+		  <Image
+			  src={img}
+			  w={'auto'}
+			  maxH={'100%'}
+			  alt={name}
+			  onClick={() => onClick(name)}
+			  cursor={'pointer'}
+		  />
+	  </Flex>
+	  <Flex //stack of information about item
+		  flexDir={'column'}
+	    alignItems={'left'}
 	    overflow={'hidden'}
 	  >
 		  <Text
@@ -49,17 +55,18 @@ const ItemCard: React.FC<ItemCardProps> = (
 			  border={'3'}
 		  />
 			<PriceTag
-				isDoge={false}
+				isLocked={false}
 				price={price}
 				fontSize={'xl'}
 				color={'yellow'}
 			/>
-			<Flex
+			<Flex //flex containing tags
 				flexDir={'row'}
 				flexWrap={'wrap'}
 			>
-				{tags.sort().map(tag => {
+				{tags.sort().map((tag, index) => {
 					return <Button
+						key={`${name}${tag}${index}`}
 						bg={'yellow'}
 						color={'blue'}
 						fontSize={'sm'}
@@ -74,7 +81,7 @@ const ItemCard: React.FC<ItemCardProps> = (
 					</Button>})}
 			</Flex>
 	  </Flex>
-  </Flex>
+  </Grid>
  );
 };
 

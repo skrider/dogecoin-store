@@ -7,7 +7,7 @@ export type QuantitySelectProps = {
  changeQuantity: (value: number) => void
 } & BoxProps;
 
-
+//This function displays current quantity, and allows user to increment it up and down
 const QuantitySelect: React.FC<QuantitySelectProps> = ({quantity, changeQuantity, ...props}: QuantitySelectProps) => {
  return (
   <Flex
@@ -16,7 +16,7 @@ const QuantitySelect: React.FC<QuantitySelectProps> = ({quantity, changeQuantity
     alignItems={'center'}
     {...props}
   >
-    <Tag
+    <Tag //incremenet quantity up
       onClick={() => changeQuantity(quantity + 1)}
       mr={'1rem'}
       bg={'yellow'}
@@ -28,10 +28,11 @@ const QuantitySelect: React.FC<QuantitySelectProps> = ({quantity, changeQuantity
       lineHeight={'75%'}
       userSelect={'none'}
       mb={'4px'}
+      color={'blue'}
     >
       {`${quantity}`}
     </Text>
-    <Tag
+    <Tag //increment quantity down
       onClick={() => changeQuantity(quantity - 1)}
       ml={'1rem'}
       bg={'yellow'}

@@ -1,6 +1,6 @@
-export type ItemTag = string;
+export type ItemTag = string; //down the line, could get more specific, so I kept it as its own type
 
-export type StoreItemInfo = {
+export type StoreItemInfo = { //raw info, nothing user-specific
 	name: string;
 	price: number;
 	img: string;
@@ -8,6 +8,6 @@ export type StoreItemInfo = {
 	tags: ItemTag[];
 }
 
-export type CartItem = {
+export type CartItem = { //user-specific
 	quantity: number;
 } & StoreItemInfo

@@ -10,7 +10,7 @@ import {
 	ModalBody,
 	ModalCloseButton,
 	Image,
-	Button,
+	Tag,
 	Text, Flex
 } from "@chakra-ui/react"
 import PriceTag from "../PriceTag";
@@ -40,13 +40,19 @@ const ItemModal: React.FC<ItemModalProps> = (
 					 src={item.img}
 	         alt={item.name}
 	         userSelect={'none'}/>
-				 <PriceTag isDoge={false} price={item.price} />
+				 <PriceTag
+					 isLocked={false}
+					 price={item.price}
+					 fontSize={'xl'}
+					 color={'yellow'}
+				 />
 				 <Flex
 					 flexDir={'row'}
 					 flexWrap={'wrap'}
 				 >
 					 {item.tags.sort().map(tag => {
-						 return <Button
+						 return <Tag
+							 key={`${item.name}_modal_${tag}`}
 							 bg={'yellow'}
 							 color={'blue'}
 							 fontSize={'sm'}
@@ -57,7 +63,7 @@ const ItemModal: React.FC<ItemModalProps> = (
 							 overflow={'hidden'}
 						 >
 							 {tag}
-						 </Button>})}
+						 </Tag>})}
 				 </Flex>
          <Text
 					 color={'blue'}
