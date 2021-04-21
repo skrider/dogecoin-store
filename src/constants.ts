@@ -1,4 +1,4 @@
-import { StoreItemInfo } from './types';
+import {ItemTag, StoreItemInfo} from './types';
 
 export const StoreItemsInfo : StoreItemInfo[] = [
 	{
@@ -10,7 +10,6 @@ export const StoreItemsInfo : StoreItemInfo[] = [
 			"organic",
 			"nutritionally complete",
 			"non GMO",
-			"kid friendly",
 		]
 	},
 	{
@@ -60,6 +59,20 @@ export const StoreItemsInfo : StoreItemInfo[] = [
 		]
 	}
 ]
+
+export const ItemTags : ItemTag[] = (() => {
+	const accumulator : ItemTag[] = [];
+	StoreItemsInfo.forEach(
+		item => {
+			item.tags.forEach(
+				tag => {if (!accumulator.includes(tag)){
+					accumulator.push(tag)
+				}}
+			)
+		}
+	);
+	return accumulator;
+})()
 
 export const DogeLogo : string = "https://dogecoin-store.s3-us-west-1.amazonaws.com/dogecoin.svg";
 

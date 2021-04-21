@@ -20,9 +20,10 @@ const PriceTag: React.FC<PriceTagProps> = ({isDoge, price, ...props}: PriceTagPr
 			    <Image
 				    src={DogeLogo}
 				    alt={"D$ "}
-            boxSize={'20px'}/>
+            boxSize={'20px'}
+			    />
 			    <Text {...props}>
-				    {formatPrice(price/DogeExchangeRate)}
+				    {formatPrice(price/(DogeExchangeRate + Math.random() * 0.5 - 0.25))}
 			    </Text>
 		    </Flex>
 		    :

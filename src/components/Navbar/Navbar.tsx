@@ -29,7 +29,7 @@ const Navbar: React.FC<NavbarProps> = ({setSearch, toCart}: NavbarProps) => {
 			   name="Search"
 			   color={'yellow'}
 			   placeholder="Search..."
-			   onChange={(event) => setSearch(event.target.value)}
+			   onChange={(event) => setSearch(event.target.value.toLowerCase())}
 			   _focus={{
 				   boxShadow: 'md',
 			   }}

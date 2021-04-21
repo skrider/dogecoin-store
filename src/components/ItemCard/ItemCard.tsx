@@ -16,20 +16,20 @@ const ItemCard: React.FC<ItemCardProps> = (
 		...props}) => {
  return (
   <Flex
-    w={'15rem'}
-    h={'22rem'}
     p={'2rem'}
     borderRadius={'md'}
     boxShadow={'md'}
     color={'white'}
     flexDir={'column'}
-    justifyContent={'space-between'}
-    onClick={() => onClick(name)} {...props}
+    justifyContent={'left'}
+    {...props}
   >
 	  <Image
 		  src={img}
 		  alt={name}
 		  alignSelf={'center'}
+		  onClick={() => onClick(name)}
+		  cursor={'pointer'}
 	  />
 	  <Flex
 	    flexDir={'column'}
@@ -39,6 +39,8 @@ const ItemCard: React.FC<ItemCardProps> = (
 		  <Text
 		    fontSize={'xl'}
 		    color={'blue'}
+		    onClick={() => onClick(name)}
+		    cursor={'pointer'}
 		  >
 			  {name}
 		  </Text>
@@ -52,26 +54,25 @@ const ItemCard: React.FC<ItemCardProps> = (
 				fontSize={'xl'}
 				color={'yellow'}
 			/>
-		  <Flex
-			  flexDir={'row'}
-			  w={'500px'}
-			  overflow={'hidden'}
-		  >
-			  {tags.map(tag => {
-				  return <Button
-					  bg={'yellow'}
-					  color={'blue'}
-					  fontSize={'sm'}
-					  p={'0.5rem'}
-					  m={'0.2rem'}
-					  h={'1.5rem'}
-					  lineHeight={'75%'}
-					  overflow={'hidden'}
-					  onClick={() => handleFilter(tag)}
-				  >
-					  {tag}
-				  </Button>})}
-		  </Flex>
+			<Flex
+				flexDir={'row'}
+				flexWrap={'wrap'}
+			>
+				{tags.sort().map(tag => {
+					return <Button
+						bg={'yellow'}
+						color={'blue'}
+						fontSize={'sm'}
+						p={'0.5rem'}
+						m={'0.2rem'}
+						h={'1.5rem'}
+						lineHeight={'75%'}
+						overflow={'hidden'}
+						onClick={() => handleFilter(tag)}
+					>
+						{tag}
+					</Button>})}
+			</Flex>
 	  </Flex>
   </Flex>
  );
