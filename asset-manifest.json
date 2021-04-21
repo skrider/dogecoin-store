@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/dogecoin-store/static/js/main.c13cf725.chunk.js",
-    "main.js.map": "/dogecoin-store/static/js/main.c13cf725.chunk.js.map",
+    "main.js": "/dogecoin-store/static/js/main.249dbf19.chunk.js",
+    "main.js.map": "/dogecoin-store/static/js/main.249dbf19.chunk.js.map",
     "runtime-main.js": "/dogecoin-store/static/js/runtime-main.a1cef072.js",
     "runtime-main.js.map": "/dogecoin-store/static/js/runtime-main.a1cef072.js.map",
-    "static/js/2.455909b8.chunk.js": "/dogecoin-store/static/js/2.455909b8.chunk.js",
-    "static/js/2.455909b8.chunk.js.map": "/dogecoin-store/static/js/2.455909b8.chunk.js.map",
+    "static/js/2.4fe8549b.chunk.js": "/dogecoin-store/static/js/2.4fe8549b.chunk.js",
+    "static/js/2.4fe8549b.chunk.js.map": "/dogecoin-store/static/js/2.4fe8549b.chunk.js.map",
     "index.html": "/dogecoin-store/index.html",
-    "static/js/2.455909b8.chunk.js.LICENSE.txt": "/dogecoin-store/static/js/2.455909b8.chunk.js.LICENSE.txt"
+    "static/js/2.4fe8549b.chunk.js.LICENSE.txt": "/dogecoin-store/static/js/2.4fe8549b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a1cef072.js",
-    "static/js/2.455909b8.chunk.js",
-    "static/js/main.c13cf725.chunk.js"
+    "static/js/2.4fe8549b.chunk.js",
+    "static/js/main.249dbf19.chunk.js"
   ]
 }
